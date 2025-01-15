@@ -17,7 +17,9 @@ The backend of the **Secure File Sharing Application** is built using Django. It
 ```bash
 git clone <backend-repo-url>
 cd secure-file-share-backend
-2. Environment Variables
+```
+
+### 2. Environment Variables
 Create a .env file in the root directory:
 
 plaintext
@@ -25,24 +27,32 @@ Copy code
 SECRET_KEY=<your-secret-key>
 EMAIL_HOST_USER=<your-email>
 EMAIL_HOST_PASSWORD=<your-email-password>
-3. Run with Docker
+
+
+###3. Run with Docker
 Ensure Docker and Docker Compose are installed on your system.
 
-bash
+```bash
 Copy code
 docker-compose up --build
-4. Access the Application
+```
+
+### 4. Access the Application
 Backend API: http://localhost:8000
 API Documentation (if configured): http://localhost:8000/docs
 ⚙️ Development Setup (Without Docker)
 Install dependencies:
-bash
+```bash
 Copy code
 pip install -r requirements.txt
+```
+
 Run migrations:
-bash
+```bash
 Copy code
 python manage.py migrate
+```
+
 Start the development server:
 bash
 Copy code
