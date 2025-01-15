@@ -22,12 +22,11 @@ cd secure-file-share-backend
 ### 2. Environment Variables
 Create a .env file in the root directory:
 
-plaintext
-Copy code
+```plaintext
 SECRET_KEY=<your-secret-key>
 EMAIL_HOST_USER=<your-email>
 EMAIL_HOST_PASSWORD=<your-email-password>
-
+```
 
 ### 3. Run with Docker
 Ensure Docker and Docker Compose are installed on your system.
@@ -43,19 +42,16 @@ API Documentation (if configured): http://localhost:8000/docs
 ⚙️ Development Setup (Without Docker)
 Install dependencies:
 ```bash
-Copy code
 pip install -r requirements.txt
 ```
 
 Run migrations:
 ```bash
-Copy code
 python manage.py migrate
 ```
 
 Start the development server:
 ```bash
-Copy code
 python manage.py runserver
 ```
 
@@ -65,7 +61,9 @@ Obtain a JWT token:
 Endpoint: /api/token/
 
 Use the token in API requests:
+```plaintext
 Header: Authorization: Bearer <token>
+```
 
 🧪 Testing
 Run the test suite:
