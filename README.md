@@ -2,6 +2,8 @@
 
 The backend of the **Secure File Sharing Application** is built using Django. It provides a secure and robust backend to handle file sharing, user role management, and secure API endpoints.
 
+Switch to master branch for source code and then perform the below steps
+
 ## Features
 - **User Role Management**: Admin, Regular User, Guest
 - **Secure File Sharing**: Upload and download files securely
@@ -20,13 +22,6 @@ cd secure-file-share-backend
 ```
 
 ### 2. Environment Variables
-Create a .env file in the root directory:
-
-```plaintext
-SECRET_KEY=<your-secret-key>
-EMAIL_HOST_USER=<your-email>
-EMAIL_HOST_PASSWORD=<your-email-password>
-```
 
 ### 3. Run with Docker
 Ensure Docker and Docker Compose are installed on your system.
