@@ -29,7 +29,7 @@ EMAIL_HOST_USER=<your-email>
 EMAIL_HOST_PASSWORD=<your-email-password>
 
 
-###3. Run with Docker
+### 3. Run with Docker
 Ensure Docker and Docker Compose are installed on your system.
 
 ```bash
@@ -54,29 +54,36 @@ python manage.py migrate
 ```
 
 Start the development server:
-bash
+```bash
 Copy code
 python manage.py runserver
+```
+
 🔒 API Authentication
+
 Obtain a JWT token:
 Endpoint: /api/token/
+
 Use the token in API requests:
 Header: Authorization: Bearer <token>
+
 🧪 Testing
 Run the test suite:
 
-bash
-Copy code
+```bash
 python manage.py test
+```
+
 🐳 Docker Commands
 Start the application:
-bash
-Copy code
+```bash
 docker-compose up --build
+```
 Stop containers:
-bash
-Copy code
+```bash
 docker-compose down
+```
+
 🔧 Technologies Used
 Django 4.2
 Django REST Framework
@@ -85,4 +92,4 @@ Docker & Docker Compose
 JWT Authentication
 Email Services (SMTP)
 yaml
-Copy code
+
