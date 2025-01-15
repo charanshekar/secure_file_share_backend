@@ -57,8 +57,77 @@ python manage.py runserver
 
 🔒 API Authentication
 
-Obtain a JWT token:
-Endpoint: /api/token/
+# Authentication Guide
+
+This guide explains the steps to authenticate users and obtain an access token for using other endpoints in the application.
+
+---
+
+## API Endpoints
+
+### 1. Register a User
+**Endpoint:**
+`POST http://localhost:8000/api/users/register/`
+
+**Payload:**
+```json
+{
+  "username": "guest-6",
+  "email": "",
+  "password": "guest123",
+  "role": "Guest"
+}
+```
+
+Notes:
+
+The role field must be one of the following:
+Guest: No email is required.
+Regular User: Requires an email for TOTP (Time-Based One-Time Password). The email-based TOTP functionality is currently disabled but can be enabled by uncommenting the email-related code. For now, the OTP will be printed on the console.
+Admin: Same behavior as Regular User for email.
+2. Login a User
+Endpoint: POST http://localhost:8000/api/users/login/
+
+Payload:
+
+json
+Copy code
+{
+  "username": "guest-6",
+  "password": "guest123"
+}
+Notes:
+
+If logging in as a Guest, no OTP verification is required.
+For Regular User or Admin, an OTP will be generated and printed in the console (or sent via email if enabled).
+3. Verify OTP
+Endpoint: POST http://localhost:8000/api/users/verifyotp/
+
+Payload:
+
+json
+Copy code
+{
+  "username": "guest-6",
+  "otp": "123456"  // Replace with the OTP printed in the console
+}
+Notes:
+
+After successful OTP verification, an access_token will be returned.
+Use this access_token to authenticate and access other endpoints.
+Example Workflow
+Register a user:
+Register as a Guest or Regular User (with email if email functionality is enabled).
+Login:
+Login with the registered username and password.
+For Guest: No OTP is required.
+For Regular User or Admin: Retrieve the OTP from the console (or email if enabled).
+Verify OTP:
+Use the OTP to verify and obtain the access_token.
+Notes
+Ensure the backend server is running on localhost:8000 for these endpoints.
+Uncomment the email-related code in the backend if you want to enable email-based TOTP for MFA.
+Keep the access_token secure and include it in the headers of subsequent requests as Authorization: Bearer <access_token>.
 
 Use the token in API requests:
 ```plaintext
